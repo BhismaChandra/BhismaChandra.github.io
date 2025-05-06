@@ -5,362 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhisma Chandra Yudha Setiawam</title>
     <link rel="icon" href="assets/images/icon.png">
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --light-bg: #f9f9f9;
-            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            padding: 1rem 5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0 auto; 
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin: 0 1.5rem;
-        }    
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a.active::after {
-            width: 100%;
-        }
-        
-        /* Section Styles */
-        section {
-            min-height: 100vh;
-            padding: 6rem 2rem 2rem;
-            scroll-margin-top: 80px;
-        }
-        
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--secondary-color);
-            text-align: center;
-        }
-        
-        /* About Me Section */
-        #about {
-            background-color: var(--light-bg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .about-text h1 {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .role-title {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-description {
-            margin-top: 1.5rem;
-        }
-
-        .about-description p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        .about-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .profile-img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: var(--card-shadow);
-        }
-        
-        /* Technology Section */
-        #technology {
-            background-color: white;
-        }
-        
-        .tech-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .tech-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-        
-        .tech-card {
-            width: 100px;
-            height: 100px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tech-card img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tech-card p {
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-align: center;
-        }
-        
-        /* Projects Section */
-        #projects {
-            background-color: var(--light-bg);
-        }
-        
-        .projects-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .project-header {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .project-header h3 {
-            font-size: 1.3rem;
-            color: var(--secondary-color);
-        }
-        
-        .project-header .arrow {
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-        
-        .project-card.expanded .arrow {
-            transform: rotate(180deg);
-        }
-        
-        .project-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .project-card.expanded .project-content {
-            max-height: 1000px;
-        }
-        
-        .project-details {
-            padding: 0 1.5rem 1.5rem;
-        }
-        
-        .project-description {
-            margin-bottom: 1.5rem;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-        
-        .project-tech .tech-card {
-            width: 60px;
-            height: 60px;
-        }
-        
-        .project-tech .tech-card img {
-            width: 30px;
-            height: 30px;
-        }
-
-        /* CV Section Styles */
-        #cv {
-            background-color: white;
-        }
-
-        .cv-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: 600px;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 2rem;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .download-btn:hover {
-            background-color: #2980b9;
-        }
-        
-        /* Footer Styles */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .copyright {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
@@ -400,6 +45,10 @@
                     <p>CSS3</p>
                 </div>
                 <div class="tech-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+                    <p>Bootstrap</p>
+                </div>
+                <div class="tech-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
                     <p>JavaScript</p>
                 </div>
@@ -408,16 +57,16 @@
                     <p>PHP</p>
                 </div>
                 <div class="tech-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS">
+                    <p>Tailwind CSS</p>
+                </div>
+                <div class="tech-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
                     <p>React</p>
                 </div>
                 <div class="tech-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel">
                     <p>Laravel</p>
-                </div>
-                <div class="tech-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
-                    <p>Bootstrap</p>
                 </div>
             </div>
         </div>
@@ -439,10 +88,12 @@
                             A comprehensive platform for monitoring and assessing students' final project process from title submission through consultations to final evaluations by supervisors and examiners. The system streamlines the entire thesis/project lifecycle with role-based access for students, supervisors, and administrators.
                         </p>
                         <div class="project-tech">
+                            <a href="https://github.com/sipta-jtk/sipta" target="_blank" rel="noopener noreferrer">
                             <div class="tech-card">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
                                 <p>GitHub</p>
                             </div>
+                            </a>
                             <div class="tech-card">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel">
                                 <p>Laravel</p>
@@ -467,10 +118,12 @@
                             Developed a movie catalogue web application inspired by IMDb, featuring search, filtering, user ratings, and reviews. The system includes role-based access for admins and users, enabling secure authentication, content management, and dynamic user interaction.
                         </p>
                         <div class="project-tech">
-                            <div class="tech-card">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-                                <p>GitHub</p>
-                            </div>
+                            <a href="https://github.com/raizenway/dramaku" target="_blank" rel="noopener noreferrer">
+                                <div class="tech-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                                    <p>GitHub</p>
+                                </div>
+                            </a>
                             <div class="tech-card">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
                                 <p>PHP</p>
@@ -502,10 +155,12 @@
                             A 3D tower defence game developed using Unity, where players place turrets to defend their headquarters (HQ) against waves of enemy vehicles. Each type of turret and enemy has unique characteristics and functions that can be upgraded throughout the game.
                         </p>
                         <div class="project-tech">
-                            <div class="tech-card">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-                                <p>GitHub</p>
-                            </div>
+                            <a href="https://github.com/RezaAziiz/TowerDefenseGame" target="_blank" rel="noopener noreferrer">
+                                <div class="tech-card">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                                    <p>GitHub</p>
+                                </div>
+                            </a>
                             <div class="tech-card">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
                                 <p>Unity</p>
@@ -537,62 +192,6 @@
             <p class="copyright">&copy; 2025 My Portfolio. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Navigation highlight on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav ul li a');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= sectionTop - 300) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Smooth scrolling for navigation
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Project card expansion
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        projectCards.forEach(card => {
-            const header = card.querySelector('.project-header');
-            
-            header.addEventListener('click', () => {
-                card.classList.toggle('expanded');
-            });
-        });
-        
-        // Font Awesome for icons (if not already included in your project)
-        const faScript = document.createElement('script');
-        faScript.src = 'https://kit.fontawesome.com/your-code-here.js';
-        faScript.crossOrigin = 'anonymous';
-        document.head.appendChild(faScript);
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
